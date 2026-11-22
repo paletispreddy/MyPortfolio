@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #07080B;
+  --bg-elevated: #0E1016;
+  --surface-glass: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --gold: #D4AF37;
+  --gold-light: #F3D98B;
+  --gold-deep: #9C7A1E;
+  --teal: #2DE2C7;
+  --text: #EDEAE3;
+  --text-muted: #8C8A85;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #07080B;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C1F2B;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Glass Card Style */
+.glass-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Liquid Gold Gradient Text with Shimmer Sweep */
+.text-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #9C7A1E 0%,
+    #D4AF37 25%,
+    #F3D98B 50%,
+    #D4AF37 75%,
+    #9C7A1E 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 10s ease-in-out infinite alternate;
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Teal Accent Gradient */
+.text-teal-gradient {
+  background: linear-gradient(135deg, #2DE2C7 0%, #76fbe6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated Film Grain Overlay */
+.film-grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: grainJitter 8s steps(10) infinite;
+}
+
+@keyframes grainJitter {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -3%); }
+  20% { transform: translate(2%, 1%); }
+  30% { transform: translate(-1%, 2%); }
+  40% { transform: translate(3%, -1%); }
+  50% { transform: translate(-2%, 3%); }
+  60% { transform: translate(1%, -2%); }
+  70% { transform: translate(3%, 2%); }
+  80% { transform: translate(-2%, 1%); }
+  90% { transform: translate(1%, -3%); }
+}
+
+/* Conic Border Animation for Intro Profile Card */
+@keyframes spinConic {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.conic-gold-border {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.conic-gold-border::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(212, 175, 55, 0.8) 120deg,
+    rgba(243, 217, 139, 1) 180deg,
+    rgba(45, 226, 199, 0.8) 240deg,
+    transparent 360deg
+  );
+  animation: spinConic 6s linear infinite;
+  z-index: 0;
+}
+.conic-gold-border > .inner-content {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-elevated);
+  border-radius: 19px;
+  margin: 1px;
+}
+
+/* Accessible Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .film-grain {
+    display: none !important;
+  }
+}

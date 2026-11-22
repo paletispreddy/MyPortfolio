@@ -1,0 +1,32 @@
+{
+  "keynote-global-strategy.jpg": {
+    "title": "Global Tech Strategy Summit",
+    "description": "Keynote address on identifying exponential market curves, scaling organizational capabilities, and leading transformative change.",
+    "date": "2026-02-18"
+  },
+  "executive-leadership-forum.jpg": {
+    "title": "Executive Leadership Forum",
+    "description": "Roundtable discussion on building high-trust engineering and executive cultures for long-term venture sustainability.",
+    "date": "2026-01-10"
+  },
+  "product-architecture-workshop.jpg": {
+    "title": "Product Architecture Workshop",
+    "description": "Deep-dive session aligning SaaS product mechanics with sustainable monetization and operational excellence.",
+    "date": "2025-11-25"
+  },
+  "venture-partner-roundtable.jpg": {
+    "title": "Venture Partner Roundtable",
+    "description": "Collaborative strategic review of portfolio acceleration and cross-border partnership development.",
+    "date": "2025-10-14"
+  },
+  "automation-systems-demo.jpg": {
+    "title": "Enterprise Automation Showcase",
+    "description": "Demonstration of end-to-end autonomous business process pipelines delivering measurable efficiency gains.",
+    "date": "2025-08-30"
+  },
+  "innovation-lab-review.jpg": {
+    "title": "Innovation Lab Quarterly Review",
+    "description": "Evaluating emerging AI and distributed system prototypes for commercialization viability.",
+    "date": "2025-07-12"
+  }
+}
